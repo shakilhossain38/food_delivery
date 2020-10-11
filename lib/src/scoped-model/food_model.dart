@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/food_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:http/http.dart' as http;
@@ -20,14 +18,14 @@ void fetchFoods(){
       //print("Fetching Data: ${response.body}");
       final List fetchedData= json.decode(response.body);
       final List<Food> fetchedFoodItems=[];
-      //print(fetchedData);
+      print(fetchedData);
       fetchedData.forEach((data) {
         Food food=Food(
           id: data['id'],
-          category: data['category'],
+          category: data['category_id'],
           discount: double.parse(data['discount']),
-          imagePath: data['imagePath'],
-          name: data['name'],
+          imagePath: data['image_path'],
+          name: data['title'],
           price: double.parse(data['price']),
         );
         fetchedFoodItems.add(food);
@@ -35,7 +33,7 @@ void fetchFoods(){
 
       });
       _foods=fetchedFoodItems;
-      print(_foods);
+
     });
   }
 }

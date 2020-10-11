@@ -87,7 +87,5 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 
-analyzer:
-  strong-mode: true
-  language:
-    enableSuperMixins: true
+
+

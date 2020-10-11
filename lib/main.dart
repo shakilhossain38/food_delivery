@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/scoped-model/food_model.dart';
+//import 'package:food_delivery/src/scoped-model/main_model.dart';
 import 'src/screens/main_screen.dart';
-import 'src/scoped-model/food_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 void main() {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
-  FoodModel foodModel=FoodModel();
+  final FoodModel foodModel= FoodModel();
   @override
   Widget build(BuildContext context) {
 
