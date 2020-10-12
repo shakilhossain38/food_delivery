@@ -8,6 +8,37 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomPadding: false,
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 100,
+            width: 800,
+          child: CustomPaint(
+            size: Size(800, 100),
+            //You can Replace this with your desired WIDTH and HEIGHT
+            painter: RPSCustomPainter(),
+          ),
+
+          ),
+         // SizedBox(height: 150.0,),
+          SignUpPageInfo(),
+        ],
+      ),
+    );
+  }
+}
+
+
+class SignUpPageInfo extends StatefulWidget {
+  @override
+  _SignUpPageInfoState createState() => _SignUpPageInfoState();
+}
+
+class _SignUpPageInfoState extends State<SignUpPageInfo> {
   bool _toggleVisibility = true;
   bool _toggleconfirmvisibility= true;
   Widget _usernamefield() {
@@ -92,100 +123,91 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 130.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Sign Up",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40.0,
-                        color: Colors.pink),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      children: <Widget>[
-                        _usernamefield(),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        _emailfield(),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        _passwordField(),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        _passwordconfirmField()
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Colors.pink,
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Sign up",
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
+    return
+       Column(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: <Widget>[
+           Text(
+             "Sign Up",
+             style: TextStyle(
+                 fontWeight: FontWeight.bold,
+                 fontSize: 30.0,
+                 color: Colors.pink),
+           ),
+           SizedBox(
+             height: 10.0,
+           ),
+           Padding(
+             padding: EdgeInsets.all(10.0),
+             child: Column(
+               children: <Widget>[
+                 _usernamefield(),
+                 SizedBox(
+                   height: 10.0,
+                 ),
+                 _emailfield(),
+                 SizedBox(
+                   height: 10.0,
+                 ),
+                 _passwordField(),
+                 SizedBox(
+                   height: 10.0,
+                 ),
+                 _passwordconfirmField()
+               ],
+             ),
+           ),
+           Padding(
+             padding: const EdgeInsets.all(10.0),
+             child: Container(
+               height: 50.0,
+               decoration: BoxDecoration(
+                 color: Colors.pink,
+                 borderRadius: BorderRadius.circular(25.0),
+               ),
+               child: Center(
+                 child: Text(
+                   "Sign up",
+                   style: TextStyle(
+                       fontSize: 18.0,
+                       fontWeight: FontWeight.bold,
+                       color: Colors.white),
+                 ),
+               ),
+             ),
+           ),
 
-                  Divider(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Already have an account?",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>SignInPage()));
-                          },
-                          child: Text(
-                            "Sign In",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.0,
-                                color: Colors.blue),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              )),
-        ],
-      ),
-    );
+
+           Padding(
+             padding: const EdgeInsets.all(10.0),
+             child: Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: <Widget>[
+                 Text(
+                   "Already have an account?",
+                   style: TextStyle(
+                     fontSize: 18.0,
+                   ),
+                 ),
+                 SizedBox(
+                   width: 10.0,
+                 ),
+                 GestureDetector(
+                   onTap: (){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>SignInPage()));
+                   },
+                   child: Text(
+                     "Sign In",
+                     style: TextStyle(
+                         fontWeight: FontWeight.bold,
+                         fontSize: 18.0,
+                         color: Colors.blue),
+                   ),
+                 ),
+               ],
+             ),
+           )
+         ],
+       );
   }
 }
